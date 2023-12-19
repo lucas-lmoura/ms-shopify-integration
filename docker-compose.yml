@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./01-basegeografica.sql:/docker-entrypoint-initdb.d/01-basegeografica.sql
+      - ./02-basegeografica.sql:/docker-entrypoint-initdb.d/02-basegeografica.sql
+    environment:
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+    ports:
+      - "5432:5432"
